@@ -1,25 +1,3 @@
-# React-Node-TypeScript boilerplate app
-
-This is a starting point for a single-page React app running on a Node.js server,
-with TypeScript on both ends.
-
-Just clone the repo, edit the `name`, `description`, and other fields in `package.json` and
-`package-lock.json`, and build from there.
-
-## Features
-
-- A starter single-page React app with very basic layout and styles, a favicon,
-  and an example asynchronous call to the server API.
-- An Express.js server with a basic logger and error handler, and a place to put API routes.
-- Webpack config files for development and production.
-- Basic code splitting: vendor files and stylesheets are extracted to separate output files.
-- Minified JS and CSS files when building for production.
-- Babel and PostCSS for browser compatibility.
-- Hot reloading on the React app.
-- Environment variables can be declared in a `.env` file in the root folder during development.
-- Code linting with ESLint. The configuration is based on Airbnb's style guide,
-  with a few of my own preferred overrides.
-
 ## Scripts
 
 - `npm run watch`: Start the development server.

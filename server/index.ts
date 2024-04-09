@@ -1,17 +1,24 @@
 import express, { Request, Response, NextFunction } from 'express';
 import morgan from 'morgan';
-
+import rateLimit from 'express-rate-limit';
 import routes from './routes';
+import { config_limiter } from './config';
 
 const app = express();
 app.use(morgan('dev'));
 
 app.use('/', routes);
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const limiter = rateLimit(config_limiter);
+
+app.use(limiter);
+
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-	console.error('Unhandled error:', err);
-	res.status(500).send(err.message);
+	if (err instanceof Error && err.name === 'TooManyRequestsError') {
+		res.status(429).send('Too Many Requests');
+	} else {
+		next(err);
+	}
 });
 
 const port = process.env.PORT || 3000;
