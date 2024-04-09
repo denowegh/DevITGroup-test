@@ -1,0 +1,51 @@
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: ['./**/tsconfig.json'],
+  },
+  plugins: [
+    '@typescript-eslint',
+  ],
+  extends: [
+    'airbnb',
+    'airbnb-typescript',
+    'plugin:@typescript-eslint/strict-type-checked',
+    'plugin:@typescript-eslint/stylistic-type-checked',
+  ],
+  rules: {
+    '@typescript-eslint/brace-style': [2, 'stroustrup'],
+    '@typescript-eslint/consistent-indexed-object-style': [2, 'index-signature'],
+    '@typescript-eslint/consistent-type-definitions': [2, 'type'],
+    '@typescript-eslint/member-delimiter-style': [2, {
+      multiline: { delimiter: 'comma', requireLast: true },
+      singleline: { delimiter: 'comma', requireLast: false },
+    }],
+    '@typescript-eslint/no-confusing-void-expression': [2, { ignoreArrowShorthand: true }],
+    '@typescript-eslint/no-misused-promises': [2, { checksVoidReturn: false }],
+    '@typescript-eslint/prefer-nullish-coalescing': [2, { ignorePrimitives: true }],
+    'arrow-parens': [2, 'as-needed'],
+    'function-call-argument-newline': 0,
+    'function-paren-newline': 0,
+    'import/order': [2, {
+      groups: [['builtin', 'external'], ['sibling', 'parent']],
+      'newlines-between': 'always',
+    }],
+    'jsx-quotes': [2, 'prefer-single'],
+    'no-cond-assign': [2, 'except-parens'],
+    'no-console': 0,
+    'no-multi-assign': 0,
+    'no-multiple-empty-lines': [2, { max: 2, maxBOF: 0, maxEOF: 0 }],
+    'no-nested-ternary': 0,
+    'object-curly-newline': [2, { multiline: true, consistent: true }],
+    radix: [2, 'as-needed'],
+    'react/function-component-definition': [2, { namedComponents: 'function-declaration' }],
+    'react/jsx-filename-extension': [2, { extensions: ['.tsx'] }],
+    'react/jsx-one-expression-per-line': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/prop-types': 0,
+    'react/react-in-jsx-scope': 0,
+  },
+  overrides: [
+    { files: '*.ts' },
+  ],
+};
